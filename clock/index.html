@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Kartik">
+        <link rel="stylesheet" href="./style.css">
+        <title>Clock</title>
+        </head>
+        <body>
+            <div class="clock">
+                <div class="clock-face">
+                    <div class="hand hour-hand"></div>
+                    <div class="hand minute-hand"></div>
+                    <div class="hand second-hand"></div>
+                </div>
+            </div>
+            <script>
+                const secondHand=document.querySelector('.second-hand');
+                const minuteHand=document.querySelector('.minute-hand');
+                const hourHand=document.querySelector('.hour-hand');
+                
+                function setTime(){
+                    const date = new Date();
+                    const sec =date.getSeconds();
+                    // adding 90 to offset for the 12:00 transformation rotation
+                    const secDeg = ((sec/60)*360)+90;
+                    
+                    if(sec===0){secondHand.style.transition='none';}
+                    secondHand.style.transform=`rotate(${secDeg}deg)`;
+                    
+                    const min = date.getMinutes();
+                    const minDeg=((min/60)*360)+90;
+                    minuteHand.style.transform=`rotate(${minDeg}deg)`;
+
+                    const hour = date.getHours();
+                    const hourDeg=((hour/12)*360)+90;
+                    hourHand.style.transform=`rotate(${hourDeg}deg)`;
+
+                    
+                }
+
+                setInterval(setTime,1000);
+
+            </script>    
+        </body>
+    </html>

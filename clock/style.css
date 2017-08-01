@@ -1,0 +1,57 @@
+/**{
+    border: 1px solid red;
+}*/
+html{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background:linear-gradient(#0b97e0, #7722ad);
+    font-size: 10px;
+}
+body{
+    
+    margin: 0;
+    display: flex;
+    flex: 1;
+    color: white;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+}
+.clock{
+    width: 30rem;
+    height: 30rem;
+    border: 15px solid white;
+    border-radius: 50%;
+    margin: 50px auto;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 0 0 4px rgba(0,0,0, 0.1),
+                inset 0 0 0 3px #EFEFEF,
+                inset 0 0 10px black,
+                0 0 10px rgba(0,0,0,0.2);
+}
+.clock-face{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateY(-3px);
+}
+.hand{
+    width: 50%;
+    height: 6px;
+    background: black;
+    top: 50%;
+    position: absolute;
+    /* transform origin changes the axis of rotation
+       by default 50% ie the center 100% - rotate about right end
+       0% - rotate about left */
+    transform-origin: 100%;
+    /* all hands at 12:00 */
+    transform: rotate(90deg);
+    /* quick movement*/
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0, 1.49, 1, 1.5);
+
+
+}
