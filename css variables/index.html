@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Kartik">
+        <title>CSS Variables</title>
+        <link rel="stylesheet" href="./style.css">
+        </head>
+        <body>
+            <div class="header">
+                <h2> CSS Variables with <span class="heading">JS</span></h2>
+            </div>
+            <div class="controls">
+                <label for="spacing" > Spacing :</label>
+                <input type="range" name="spacing" min="10" max="200" value="10" data-suffix="px">
+                <label for="blur" > Blur :</label>
+                <input type="range" name="blur" min="0" max="25" value="0" data-suffix="px">
+                <label for="base"> Base Color :</label>
+                <input type="color" name="base" value="#ffffff">
+            </div>
+            <div class="image">
+                <img src="https://source.unsplash.com/random/600x400">
+            </div>
+            <script>
+                const inputs = document.querySelectorAll('.controls input');
+
+                function handleUpdate(){
+                    // data set contains the data attributes of an element
+                    const suffix =this.dataset.suffix||''; // || prevents undefined
+                    // document Element is root having the three css variables
+                    // this.name matches with the css variable name 
+                    // console.log(`--${this.name}`,this.value+suffix);
+                    document.documentElement.style.setProperty(`--${this.name}`,this.value+suffix);
+                }
+
+                inputs.forEach(input => input.addEventListener('change',handleUpdate));
+                inputs.forEach(input => input.addEventListener('mousemove',handleUpdate));
+            </script>
+        </body>
+    </html>

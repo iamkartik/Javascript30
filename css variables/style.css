@@ -1,0 +1,43 @@
+/**{
+    border: 1px solid red;
+}*/
+:root{
+    --base:#ffffff;
+    --blur:10px;
+    --spacing:10px;
+}
+html{
+    margin:0;
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin: 0;
+    background-color: #192e3f;
+    font-size: 40px;
+    color: white;
+}
+.header{
+    margin: 10px;   
+    min-height: 20vh;
+    text-align: center;
+}
+.controls{
+    min-height: 10vh;
+    margin: 10px;
+    text-align: center;
+}
+.image{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    padding: var(--spacing);
+    background: var(--base);
+    filter:blur(var(--blur));
+}
+.heading{
+    color: var(--base);
+}
