@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Kartik">
+        <title>Click and drag a div</title>
+        <link rel="stylesheet" href="./style.css">
+        </head>
+        <body>
+            <div class="items">
+                <div class="item">01</div>
+                <div class="item">02</div>
+                <div class="item">03</div>
+                <div class="item">04</div>
+                <div class="item">05</div>
+                <div class="item">06</div>
+                <div class="item">07</div>
+                <div class="item">08</div>
+                <div class="item">09</div>
+                <div class="item">10</div>
+                <div class="item">11</div>
+                <div class="item">12</div>
+                <div class="item">13</div>
+                <div class="item">14</div>
+                <div class="item">15</div>
+                <div class="item">16</div>
+                <div class="item">17</div>
+                <div class="item">18</div>
+            </div>
+            <script>
+                const slider=document.querySelector('.items');
+                let isDown=false;
+                let startX;
+                let scrollLeft;
+
+                slider.addEventListener('mousedown',(e)=>{
+                    isDown=true;
+                    slider.classList.add('active');
+                    // find position on page and subtract any left side margin or padding
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft =slider.scrollLeft;
+                });
+
+                slider.addEventListener('mouseup',()=>{
+                    isDown=false;
+                    slider.classList.remove('active');
+                });
+
+                slider.addEventListener('mouseleave',()=>{
+                    isDown=false;
+                    slider.classList.remove('active');
+                });
+
+                slider.addEventListener('mousemove',(e)=>{
+                    if(!isDown) return;
+                    // calculate the current x value 
+                    const x=e.pageX-slider.offsetLeft;
+                    // subtract it from initial value
+                    const walk = x-startX;
+                    // subtract the distance from original scroll at the time of mouse down
+                    slider.scrollLeft =scrollLeft-walk;
+                    
+                });
+            </script>
+        </body>
+    </html>
