@@ -28,6 +28,11 @@ body{
 .player:-webkit-full-screen {
   max-width: none;
   width: 100%;
+  border: none;
+}
+.player:-webkit-full-screen .player-controls{
+  padding-right: 50px;
+  left: 20px;
 }
 
 .video-player{
@@ -67,14 +72,6 @@ body{
     /* higer z index makes it visible even in fullscreen*/
     z-index: 2147483647;
 }
-.player:-webkit-full-screen {
-    display: none;
-}
-.player:fullscreen {
-    padding-right: 20px;
-    left: 20px;
-}
-
 
 .player:hover .player-controls{
     transform: translateY(0);
@@ -85,9 +82,7 @@ body{
 .player:hover .progress{
     height: 15px;
 }
-/**{
-    border: 1px solid red;
-}*/
+
 .progress{
     flex: 10;
     position: relative;

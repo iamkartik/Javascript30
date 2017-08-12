@@ -43,7 +43,7 @@ function scrub(e){
 }
 
 function toggleFullScreen(){
-    document.webkitIsFullScreen?document.webkitExitFullscreen():video.webkitRequestFullscreen();
+    document.webkitIsFullScreen?document.webkitExitFullscreen():player.webkitRequestFullscreen();
 }
 
 video.addEventListener('click',togglePlay);
