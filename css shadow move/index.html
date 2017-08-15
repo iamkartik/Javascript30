@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Kartik">
+        <title>CSS shadow move</title>
+        <style>
+            html{
+                color:black;
+                font-family: sans-serif;
+            }
+            body{
+                margin: 0;
+                background: linear-gradient(#e02f2f,#4141f3);
+            }
+            .hero{
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: black;
+            }
+            h1{
+                font-size: 100px;
+                text-shadow: 10px 10px 0 rgba(0,0,0,0.2);
+            }
+        </style>
+        </head>
+        <body>
+            <div class="hero">
+                <h1 contenteditable="">Woah man!!</h1>
+            </div>
+            <script>
+                const hero = document.querySelector('.hero');
+                const text = hero.querySelector('h1');
+                // change walk value to make shadow move more or less
+                const walk =50;// 100px
+                function shadow(e){
+                    // es6 deconstructing
+                    // take offsetWidth and height from hero element and event 
+                    // set them to x, y , width , height variables
+                    // const height = hero.offsetHeight;
+                    const {offsetWidth:width , offsetHeight:height}=hero;
+                    let {offsetX:x , offsetY:y}=e;
+                    // this the element bounded by the listerner
+                    // e. target what triggered the event
+                    // console.log(this ,e.target)
+                    // update the x and y accordingly as h1 causes it to become 0 inside hero
+                    if(this !== e.target){
+                        x=x+e.target.offsetLeft;
+                        y=y+e.target.offsetTop;
+                    }
+                    
+                    // normalize a walk value so all x and y ranges b/w +50 and -50 and not 0 100 700 ..
+                    const xWalk = Math.round((x/width*walk) - (walk/2));
+                    const yWalk = Math.round((y/height*walk) - (walk/2));
+
+                    text.style.textShadow=`${xWalk}px ${yWalk}px 0 rgba(0,0,0,0.3)`;
+                                            // add different colored shadows in different direction
+                                            // ${yWalk}px ${xWalk}px 0 rgba(0,0,0,0.3),
+                                            // ${yWalk*-1}px ${xWalk}px 0 rgba(0,0,0,0.3)`
+
+
+                }
+                
+                hero.addEventListener('mousemove',shadow);
+            </script>
+        </body>
+    </html>
