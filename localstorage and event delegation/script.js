@@ -1,5 +1,8 @@
 const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
+const check = document.querySelector('.clear [name=checkAll]');
+const unCheck = document.querySelector('.clear [name=unCheckAll]');
+const deleteA = document.querySelector('.clear [name=deleteAll]');
 // get items from localStorage or initialize as an empty array
 const items =JSON.parse(localStorage.getItem('items'))||[];
 
@@ -57,6 +60,28 @@ function toggleSelected(e){
     populateList(items,itemsList);
 }
 
+function checkAll(){
+    items.forEach((item)=>{
+        item.selected=true;
+    });
+    localStorage.setItem('items',JSON.stringify(items));
+    populateList(items,itemsList);
+}
+
+function unCheckAll(){
+    items.forEach((item)=>{
+        item.selected=false;
+    });
+    localStorage.setItem('items',JSON.stringify(items));
+    populateList(items,itemsList);
+}
+
+function deleteAll(){
+    items.length=0;
+    localStorage.setItem('items',JSON.stringify(items));
+    populateList(items,itemsList);
+}
+
 addItems.addEventListener('submit',addItem);
 
 // to toggle and persist checkbox
@@ -65,5 +90,8 @@ addItems.addEventListener('submit',addItem);
 // in this case parent is ul and child is the li added on every form submit
 itemsList.addEventListener('click',toggleSelected);
 
+check.addEventListener('click',checkAll);
+unCheck.addEventListener('click',unCheckAll);
+deleteA.addEventListener('click',deleteAll);
 // call on pageLoad
 populateList(items,itemsList);

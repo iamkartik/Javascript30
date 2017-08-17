@@ -51,10 +51,10 @@ h2{
 .plates input:checked + label::before{
     content: '\1F32E';
 }
-.add-items{
+.add-items,.clear{
     margin-top: 20px;
 }
-.add-items input{
+.add-items input,.clear input{
     padding: 10px;
     border: 1px solid rgba(0,0,0,0.1);
     outline: 0;
