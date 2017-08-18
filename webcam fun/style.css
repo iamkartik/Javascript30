@@ -1,0 +1,43 @@
+html{
+    box-sizing: border-box;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+html{
+    font-size: 10px;
+    background: #302053;
+}
+.photobooth{
+    background: white;
+    border-radius: 2px;
+    max-width: 80%;
+    margin: 2% auto;
+    max-height: 80vh;
+}
+.photo{
+    width: 100%;
+    float: left;    
+}
+.player{
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    position: absolute;
+}
+.photobooth::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.photo-strip{
+    padding: 2%;
+}
+.photo-strip img{
+    width: 100px;
+    overflow-x: scroll;
+    background: white;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    padding: 5px;
+}
