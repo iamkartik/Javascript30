@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Kartik">
+        <title>Event Capture, Propagation, Bubbling, Once</title>
+        <style>
+            html{
+                box-sizing: border-box;
+            }
+            *,*::before,*::after{
+                box-sizing: inherit;
+            }
+            div{
+                width: 100%;
+                padding: 100px;
+            }
+            .one{
+                background: teal;
+            }
+            .two{
+                background: thistle;
+            }
+            .three{
+                background: tomato
+            }
+        </style>
+        </head>
+        <body>
+            <div class="one">
+                <div class="two">
+                    <div class="three"></div>
+                </div>
+            </div>
+            <script src="./script.js"></script>
+        </body>
+    </html>
