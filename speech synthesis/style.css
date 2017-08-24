@@ -1,0 +1,70 @@
+html{
+    box-sizing: border-box;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(#22106b,#bb8ac5);
+    display: flex;
+    align-items: center;
+}
+.speechbox{
+    margin: 0 auto;
+    width: 50rem;
+    padding: 2rem;
+    background: white;
+    position: relative;
+    border-radius: 20px;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+h1{
+    width: calc(100% + 4rem);
+    background: #676fc7;
+    margin: -2rem 0 2rem -2rem;
+    padding: .5rem;
+    text-align: center;
+    border-bottom: 5px solid #4f5596;
+    font-weight: 100;
+    font-size: 5rem;
+    font-family: monospace;
+}
+.speechbox input,
+.speechbox button,
+.speechbox textarea,
+.speechbox select{
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 0;
+    outline: 0;
+    background:#F7F7F7;
+    font-size: 2rem;
+}
+textarea{
+    height: 7rem;
+}
+.speechbox button{
+    background: #676fc7;
+    border: 0;
+    width: 49%;
+    position: relative;
+    float: left;
+    font-family: monospace;
+    margin-bottom: 0;
+    font-size: 2rem;
+    border-bottom: 5px solid #4f5596;
+    cursor: pointer;
+}
+.speechbox button:active{
+    top: 2px;
+}
+.speechbox button:nth-of-type(1){
+    margin-right: 2%;
+}
