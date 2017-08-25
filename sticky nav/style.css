@@ -1,0 +1,89 @@
+html{
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    background: #eeeeee
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+}
+.site-wrap{
+    max-width: 700px;
+    margin: 70px auto;
+    background: white;
+    padding: 40px;
+    text-align: justify;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+    transform: scale(0.98);
+    transition: transform 0.5s;
+}
+header{
+    text-align: center;
+    background: url('https://source.unsplash.com/sx567MsyF7M') bottom center no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    color: white;
+    font-size: 7vw;
+    text-shadow: 2px 7px 3px rgba(0, 0, 0, 0.52);
+}
+nav{
+    background: black;
+    top: 0;
+    width: 100%;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-fix nav{
+    position: fixed;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+}
+nav ul{
+    display: flex;
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+nav li{
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav a{
+    text-decoration:none;
+    text-transform: uppercase;
+    padding: 20px;
+    color: white;
+    display: inline-block;
+    transition: all 0.2s;
+}
+li.logo{
+    max-width: 0;
+    overflow: hidden;
+    background: white;
+    font-size: 40px;
+    transition: all 0.5s;
+    font-weight: 600;
+}
+li.logo a{
+    color: black;
+}
+.nav-fix li.logo{
+    /* when the nav is fixed make logo appear by changing the max width*/
+    max-width: 250px;
+}
+.nav-fix .site-wrap{
+    /* when the nav is fixed make text larger by transforming it*/
+    transform: scale(1);
+}
